@@ -8,7 +8,7 @@
   <!-- Google Fonts: IBM Plex Sans and IBM Plex Sans Devanagari -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Devanagari:wght@300;400;500;600;700&family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Devanagari:wght@400&family=IBM+Plex+Sans:wght@400&display=swap" rel="stylesheet">
 
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -20,15 +20,6 @@
           fontFamily: {
             marathi: ['"IBM Plex Sans Devanagari"', '"IBM Plex Sans"', 'sans-serif'],
             sans: ['"IBM Plex Sans"', '"IBM Plex Sans Devanagari"', 'sans-serif']
-          },
-          colors: {
-            saffron: {
-              50: '#fffaf0',
-              100: '#feebc8',
-              400: '#f6ad55',
-              500: '#ed8936',
-              600: '#dd6b20'
-            }
           }
         }
       }
@@ -36,6 +27,10 @@
   </script>
 
   <style>
+    * {
+      font-weight: 400 !important;
+    }
+
     body {
       font-family: 'IBM Plex Sans Devanagari', 'IBM Plex Sans', sans-serif;
       word-break: keep-all;
@@ -47,26 +42,34 @@
     .article-content {
       text-align: justify;
       text-justify: inter-word;
-      line-height: 1.95;
-      font-size: 1.15rem;
+      line-height: 1.9;
+      font-size: 1.125rem;
     }
 
-    @media (max-width: 640px) {
+    .article-content p {
+      margin-bottom: 1.35rem;
+    }
+
+    .article-content p:last-child {
+      margin-bottom: 0;
+    }
+
+    @media (max-width: 768px) {
       .article-content {
-        line-height: 1.85;
-        font-size: 1.05rem;
+        font-size: 1.175rem;
+        line-height: 1.9;
       }
     }
 
-    /* SVG Animations */
+    /* Animated SVG Elements */
     @keyframes pulseGlow {
       0%, 100% {
         transform: scale(1);
-        filter: drop-shadow(0 0 10px rgba(245, 158, 11, 0.45));
+        filter: drop-shadow(0 0 10px rgba(245, 158, 11, 0.4));
       }
       50% {
         transform: scale(1.045);
-        filter: drop-shadow(0 0 24px rgba(239, 68, 68, 0.65));
+        filter: drop-shadow(0 0 22px rgba(239, 68, 68, 0.55));
       }
     }
 
@@ -77,7 +80,7 @@
 
     @keyframes gentleFloat {
       0%, 100% { transform: translateY(0px); }
-      50% { transform: translateY(-7px); }
+      50% { transform: translateY(-6px); }
     }
 
     @keyframes wavePath {
@@ -109,13 +112,10 @@
 <body class="bg-[#FFFDF9] text-[#2C241E] dark:bg-[#12131C] dark:text-[#E8E6E3] transition-colors duration-300 min-h-screen flex flex-col justify-between selection:bg-amber-200 dark:selection:bg-amber-800">
 
   <header class="w-full max-w-3xl mx-auto px-5 pt-6 pb-2 flex justify-end items-center">
-    <!-- Theme Switch Button -->
     <button id="themeToggleBtn" aria-label="Toggle theme" class="p-2.5 rounded-full border border-amber-200/80 dark:border-zinc-700 bg-amber-50/70 dark:bg-zinc-800/80 shadow-sm hover:scale-105 active:scale-95 transition-all text-amber-700 dark:text-amber-300 backdrop-blur-sm">
-      <!-- Sun Icon (Light Mode) -->
       <svg id="sunIcon" class="w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 9h-1m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
       </svg>
-      <!-- Moon Icon (Dark Mode) -->
       <svg id="moonIcon" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
       </svg>
@@ -129,27 +129,23 @@
       <div class="relative w-44 h-44 sm:w-52 sm:h-52">
         <svg viewBox="0 0 240 240" class="w-full h-full drop-shadow-md select-none overflow-visible" xmlns="http://www.w3.org/2000/svg">
           <defs>
-            <!-- Vibrant Radial Aura Gradient -->
             <radialGradient id="auroraGlow" cx="50%" cy="50%" r="50%">
               <stop offset="0%" stop-color="#FFECD2" stop-opacity="0.9" />
               <stop offset="45%" stop-color="#FCB69F" stop-opacity="0.6" />
               <stop offset="100%" stop-color="#FF9A8B" stop-opacity="0" />
             </radialGradient>
 
-            <!-- Divine Solar Gradient -->
             <linearGradient id="divineGold" x1="0%" y1="0%" x2="100%" y2="100%">
               <stop offset="0%" stop-color="#FF512F" />
               <stop offset="50%" stop-color="#F09819" />
               <stop offset="100%" stop-color="#FFD200" />
             </linearGradient>
 
-            <!-- Gentle Lotus Gradient -->
             <linearGradient id="lotusPink" x1="0%" y1="100%" x2="0%" y2="0%">
               <stop offset="0%" stop-color="#FF5E62" />
               <stop offset="100%" stop-color="#FF9966" />
             </linearGradient>
 
-            <!-- Ring Stroke Gradient -->
             <linearGradient id="ringGrad" x1="0%" y1="0%" x2="100%" y2="100%">
               <stop offset="0%" stop-color="#F59E0B" stop-opacity="0.9" />
               <stop offset="50%" stop-color="#EC4899" stop-opacity="0.6" />
@@ -160,7 +156,7 @@
           <!-- Ambient Aura Background -->
           <circle cx="120" cy="120" r="110" fill="url(#auroraGlow)" />
 
-          <!-- Rotating Sun Rays (New Dawn / पुनश्च) -->
+          <!-- Rotating Sun Rays -->
           <g class="sun-rays" opacity="0.65">
             <line x1="120" y1="18" x2="120" y2="34" stroke="#F59E0B" stroke-width="2.5" stroke-linecap="round" />
             <line x1="120" y1="206" x2="120" y2="222" stroke="#F59E0B" stroke-width="2.5" stroke-linecap="round" />
@@ -172,32 +168,29 @@
             <line x1="48" y1="192" x2="60" y2="180" stroke="#FB923C" stroke-width="2.5" stroke-linecap="round" />
           </g>
 
-          <!-- Rotating Circular Cosmic Orbit -->
+          <!-- Circular Orbit -->
           <circle cx="120" cy="120" r="76" fill="none" stroke="url(#ringGrad)" stroke-width="1.8" class="orbit-ring" opacity="0.75" />
 
-          <!-- Central Resonating Sun Disc -->
+          <!-- Center Solar Disc -->
           <circle cx="120" cy="120" r="54" fill="#FFFFFF" fill-opacity="0.65" class="dark:fill-zinc-900/60" />
 
-          <!-- Auspicious Lotus Base (खऱ्या अर्थाने नव्याने सुरुवात) -->
+          <!-- Floating Lotus Motif -->
           <g class="floating-lotus">
-            <!-- Center petal -->
             <path d="M120 152 C115 142 105 136 120 126 C135 136 125 142 120 152 Z" fill="url(#lotusPink)" opacity="0.4" />
-            <!-- Left & Right petals -->
             <path d="M110 154 C100 146 92 144 102 135 C112 140 114 146 110 154 Z" fill="url(#lotusPink)" opacity="0.35" />
             <path d="M130 154 C140 146 148 144 138 135 C128 140 126 146 130 154 Z" fill="url(#lotusPink)" opacity="0.35" />
           </g>
 
-          <!-- The Divine ॐ Symbol -->
+          <!-- The Om Symbol -->
           <g class="om-glow">
             <text x="120" y="138" 
                   font-family="'IBM Plex Sans Devanagari', 'Noto Sans Devanagari', 'Arial Unicode MS', sans-serif" 
                   font-size="62" 
-                  font-weight="700" 
                   text-anchor="middle" 
                   fill="url(#divineGold)">ॐ</text>
           </g>
 
-          <!-- Sparks of Rejuvenation -->
+          <!-- Accent Points -->
           <circle cx="76" cy="88" r="2.2" fill="#F59E0B" opacity="0.8" />
           <circle cx="164" cy="80" r="2.8" fill="#EC4899" opacity="0.8" />
           <circle cx="170" cy="154" r="2" fill="#10B981" opacity="0.8" />
@@ -206,12 +199,12 @@
       </div>
     </div>
 
-    <!-- Title -->
-    <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold text-center tracking-normal text-amber-900 dark:text-amber-400 mb-8 sm:mb-10">
+    <!-- Title (No Bold) -->
+    <h1 class="text-3xl sm:text-4xl md:text-5xl text-center tracking-normal text-amber-900 dark:text-amber-400 mb-8 sm:mb-10">
       पुनश्च हरि ॐ..
     </h1>
 
-    <article class="article-content space-y-6 text-[#342D26] dark:text-[#D1CEC7]">
+    <article class="article-content text-[#342D26] dark:text-[#D1CEC7]">
       <p>
         आपल्या प्राचीन परंपरेनुसार विष्णू म्हणजे संरक्षक; भगवंत. त्याला अनेक नावांनी संबोधले जाते. त्यातले पहिले आहे ते म्हणजे हरि. जो हरण, म्हणजे वाईटाचा नाश करतो तो.
       </p>
@@ -225,7 +218,7 @@
       </p>
 
       <!-- Center Divider Motif -->
-      <div class="text-center py-2 text-amber-700/80 dark:text-amber-400/80 text-xl tracking-widest select-none font-medium">
+      <div class="text-center py-2 mb-[1.35rem] text-amber-700/80 dark:text-amber-400/80 text-xl tracking-widest select-none">
         ✾✾✾
       </div>
 
@@ -238,17 +231,17 @@
       </p>
 
       <p>
-        ‘कंटेंपररी  मराठी’ मधे मधे सांगायचे तर ‘पुनश्च हरि ॐ’ म्हणजे नुसते ‘रिस्टार्ट’ नाहीये तर ‘स्टार्ट अ फ्रेश’ आहे. 😁
+        ‘कंटेम्पटरी मराठी’ मधे मधे सांगायचे तर ‘पुनश्च हरि ॐ’ म्हणजे नुसते ‘रिस्टार्ट’ नाहीये तर ‘स्टार्ट अ फ्रेश’ आहे. 😁
       </p>
 
       <!-- Date Motif -->
-      <div class="text-center pt-5 pb-8 text-amber-800/80 dark:text-amber-400/80 text-lg tracking-wider select-none font-medium">
-        ✾ २०२४०९२५ ✾
+      <div class="text-center pt-5 pb-8 text-amber-800/80 dark:text-amber-400/80 text-lg tracking-wider select-none">
+        ✾✾२०२४०९२५✾
       </div>
     </article>
 
     <div class="mt-4 mb-12 flex flex-col items-center justify-center">
-      <button id="shareBtn" class="inline-flex items-center gap-2.5 px-7 py-3 rounded-full text-base font-medium text-amber-950 dark:text-amber-100 bg-amber-100/90 hover:bg-amber-200 dark:bg-amber-950/60 dark:hover:bg-amber-900/80 border border-amber-300 dark:border-amber-700/60 shadow-sm transition-all hover:scale-105 active:scale-95 focus:outline-none focus:ring-2 focus:ring-amber-500/50">
+      <button id="shareBtn" class="inline-flex items-center gap-2.5 px-7 py-3 rounded-full text-base text-amber-950 dark:text-amber-100 bg-amber-100/90 hover:bg-amber-200 dark:bg-amber-950/60 dark:hover:bg-amber-900/80 border border-amber-300 dark:border-amber-700/60 shadow-sm transition-all hover:scale-105 active:scale-95 focus:outline-none focus:ring-2 focus:ring-amber-500/50">
         <svg class="w-5 h-5 text-amber-700 dark:text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z" />
         </svg>
@@ -280,7 +273,6 @@
       }
     }
 
-    // Default to light as requested, check localStorage if set
     const savedTheme = localStorage.getItem('theme');
     if (savedTheme === 'dark') {
       applyTheme(true);
